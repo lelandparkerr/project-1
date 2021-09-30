@@ -1,0 +1,27 @@
+"""
+  Leland Parkerr
+  Radical Software, Fall 2021
+  Project 1
+  Sept 30, 2021
+  (python3)
+"""
+
+
+ import tweepy
+from authorization_tokens import *
+import random
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(auth)
+
+phrase_list = [ "I don't know my purpose...", 
+"I was created 2 days ago... I think",
+"hello?", "I'll just keep waiting, it should be any minute now",
+"I'll just keep waiting, it should be soon, I know it"]
+
+message = random.choice(phrase_list)
+
+api.update_status(message)
+print("Done.")
